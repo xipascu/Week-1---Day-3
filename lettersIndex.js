@@ -2,19 +2,21 @@ function letterIndex(string) {
 
   var characters = {};
   //object default
-  var stringNoSpace = string.replace(/ /g, '');
-  // /\s -- space
-  // /g - global, causes the replacecall to replace all matches
 
-  for (var i = 0; i < stringNoSpace.length; i++) {
+  for (var i = 0; i < string.length; i++) {
   //return characters
   //return index of characters in line
-    if (!characters[stringNoSpace[i]]) {
-      characters[stringNoSpace[i]] = [i];
-    } else {
-      characters[stringNoSpace[i]].push(i);
+    if (string[i] === ' ') {
+      continue;
     }
+
+    if (!characters[string[i]]) {
+      characters[string[i]] = [];
+    }
+
+    characters[string[i]].push(i); ///****
   }
+
   return characters;
 }
 
